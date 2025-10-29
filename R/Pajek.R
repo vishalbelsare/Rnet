@@ -59,7 +59,7 @@ net2matrix <- function(f,warn=1,nolink=0){
 #   L <- readLines(f)
    options(warn = defaultW)
    if(is.na(L[1])) return(NA)
-   st <- grep("\\*",L)
+   st <- which(substr(L,1,1)=="*")
    S <- unlist(strsplit(trimws(L[st[1]]),'[[:space:]]+'))
    ls <- length(S); twomode <- ls > 2
    if(twomode){nr <- as.integer(S[3]); nc <- as.integer(S[2])-nr} else
@@ -346,5 +346,6 @@ listTitles <- function(resF,win){
 }
 
  
+
 
 
